@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-contract Token {
+contract TokenMalandrino {
 
   mapping(address => uint) balances;
   uint public totalSupply;
@@ -20,4 +20,5 @@ contract Token {
   function balanceOf(address _owner) public view returns (uint balance) {
     return balances[_owner];
   }
+  
 }
