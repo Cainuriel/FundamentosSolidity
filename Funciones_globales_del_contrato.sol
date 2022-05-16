@@ -33,7 +33,7 @@ contract funciones_globales{
         return msg.sig;
     }
     
-    //funcion tx.gaspricev
+    //funcion tx.gasprice
     function txGasPrice() public view returns(uint){
         return tx.gasprice;
     }
