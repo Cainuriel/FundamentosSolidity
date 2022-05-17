@@ -17,14 +17,20 @@ pragma solidity ^0.8.0;
     return _a + _b;
   }
 
-  function restar(uint _a, uint _b) internal pure returns (uint) 
+  function restar(uint _a, uint _b) private pure returns (uint) 
   {
     return _a - _b;
   }
     
-  function dividir(uint _a, uint _b) private pure returns (uint) 
+  function dividir(uint _a, uint _b) internal  pure returns (uint, uint, bool) 
   {
-    return _a / _b;
+    uint result = _a / _b;
+    uint residuo = _a % _b;
+    if(residuo == 0) {
+      return (result, residuo, true);
+    } else {
+      return (result, residuo, false);
+    }
   }
 
  // function modulo(uint _a, uint _b) external pure virtual returns (uint);
@@ -76,10 +82,11 @@ contract Pagables is funciones
     return address(this).balance;
   }
 
-  function accesoFuncionesHeredadas(uint _a, uint _b) public pure returns (uint balance) 
-  {
-    // return dividir(_a, _b);
-     return restar(_a, _b);
+  function accesoFuncionesHeredadas(uint _a, uint _b) public pure returns (uint, uint) 
+  {  
+    (uint result, uint residuo,) = dividir(_a, _b);
+    return (result, residuo);
+    // return restar(_a, _b);  // innacesible por ser private
   }
 
   function withdraw() public segurity 
