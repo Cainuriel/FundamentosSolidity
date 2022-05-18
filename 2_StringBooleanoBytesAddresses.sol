@@ -6,7 +6,6 @@ contract StringsBooleanoBytesAddresses {
     // cadenas de texto UTF-8 de longitud arbitraria. 
     // EN REALIDAD NO SON UN TIPO DE DATO SINO UN ARRAY DE BYTES DINAMICO
     string public stringvariable = "String Variable";
-
     // booleano
     bool public booleano;
 
@@ -37,9 +36,10 @@ contract StringsBooleanoBytesAddresses {
     }
 
     // ESTE CÓDIGO ESTA MAL SI SE QUERE SABER EL NUMERO DE CARACTERES
-        function getStringLength(string memory _s) public pure returns (uint) {
-            bytes memory bs = bytes(_s);
-            return bs.length;
-        }
+    function getStringLength(string memory _s) public pure returns (uint) 
+    {
+        bytes memory bs = bytes(_s);
+        return bs.length;
+    }
 
 }
