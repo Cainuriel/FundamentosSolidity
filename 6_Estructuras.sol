@@ -118,14 +118,13 @@ contract Estructuras {
 
     }
 
-    function createArray() public view returns(Estructura[] memory){
-
-            Estructura[] memory array;
+      function createArray() public view returns(Estructura[] memory) 
+      {
+            Estructura[] memory array = new Estructura[](contador);
             for(uint i = 0; i < contador; i++){
-            array[i] = users[i + 1];      
+                array[i] = users[i + 1];
             }
             return array;
-
     }
 
 }
