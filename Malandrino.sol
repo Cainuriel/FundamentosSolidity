@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
+///@title:Malandrino Token
+///@notice:Un malacioso desarrollador a intentando colocar este contrato a nuestro amigo Dani.
+///@custom:La trampa: Utiliza una version de compilacion que no controla el overflow. 
+///@custom:Solucion: Pasar a la version de compilacion ^0.8.0;
 contract TokenMalandrino {
 
   mapping(address => uint) balances;
