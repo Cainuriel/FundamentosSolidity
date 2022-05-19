@@ -28,7 +28,6 @@ contract Estructuras {
 
     lenguage public selectLenguage;
 
-
     function selectSolidity() public {
 
         require(permisos[msg.sender], "No tiene permiso");
@@ -49,7 +48,7 @@ contract Estructuras {
     /// ///     ARRAYS ///    
 
     // array fijo
-    uint [] arrayFijo = [1,2,3,4,5,6,7,8];
+    uint [8] arrayFijo = [1,2,3,4,5,6,7,8];
     // array dinamico
     Estructura [] public arrayDinamico;
 
@@ -68,7 +67,7 @@ contract Estructuras {
 
         function removeItemArray(uint i) public {
 
-        delete arrayFijo[i];
+        delete arrayFijo[i];    // palabra reservada delete!
 
         }
 
@@ -79,13 +78,15 @@ contract Estructuras {
         }
 
         // eliminando elemento en array DESORDENADAMENTE
-        function remove(uint index) public returns(uint){
+        function remove(uint index) public returns(uint, uint){
 
+        uint startGas = gasleft();
         uint element = arrayFijo[index];
         arrayFijo[index] = arrayFijo[arrayFijo.length - 1];
-        delete arrayFijo[arrayFijo.length - 1];
+        delete arrayFijo[arrayFijo.length - 1];  
         arrayFijo.pop();
-        return element;
+        uint gasUsed = startGas - gasleft();
+        return (element, gasUsed);
 
         }
 
@@ -98,6 +99,7 @@ contract Estructuras {
         arrayFijo.pop();
         uint gasUsed = startGas - gasleft();
         return gasUsed;
+
         }
 
 
@@ -107,15 +109,25 @@ contract Estructuras {
 
     uint public contador;
 
-    function crearUsuario(uint _idNFT, string memory _nombre) public  {
-
+    function MappingCreateUser(uint _idNFT, string memory _nombre) public returns(uint)  {
+            uint startGas = gasleft();
             require(!permisos[msg.sender], "Usted ya esta registrado");
-            contador++;
             Estructura memory newEstructura  = Estructura(_nombre, _idNFT, msg.sender);
             users[contador] = newEstructura;
             permisos[msg.sender] = true;
-            arrayDinamico.push(newEstructura);
+            uint gasUsed = startGas - gasleft();
+            return gasUsed;
+    }
 
+       function ArrayCreateUser(uint _idNFT, string memory _nombre) public returns(uint)  {
+            uint startGas = gasleft();
+            require(!permisos[msg.sender], "Usted ya esta registrado");
+            contador++;
+            Estructura memory newEstructura  = Estructura(_nombre, _idNFT, msg.sender);
+            arrayDinamico.push(newEstructura);
+            permisos[msg.sender] = true;
+            uint gasUsed = startGas - gasleft();
+            return gasUsed;
     }
 
       function createArray() public view returns(Estructura[] memory) 
