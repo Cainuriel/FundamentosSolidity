@@ -1,7 +1,8 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-
+/// private: Accesibilidad para el contrato UNICAMENTE. Contratos que lo hereden no podrán alcanzarla.
+/// internal: Accesibilidad para el contrato y demás contratos que la hereden. 
 contract Accesibilidad 
 {
 
@@ -43,7 +44,7 @@ contract PruebadeAcceso is Accesibilidad
         return  interna = interna + value;
 
     }
-
+// dará error porque no alcanzará a esta variable. Cambiar por la variable publica por ejemplo.
      function sumarPrivate(uint value) public returns(uint) 
     {
        return  privado = privado + value;
