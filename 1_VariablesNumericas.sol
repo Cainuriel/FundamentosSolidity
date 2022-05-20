@@ -13,7 +13,7 @@ contract VariablesNumericas {
 
     // se puede especificar el número de bits. MULTIPLOS DE OCHO desde 8 a 256
     uint32 public treintadosBits = 4_294_967_295;    
-    //    uint32 treintadosBits2 = 4294967296;
+    //    uint32 treintadosBits2 = 4294967296; // demasiado grande
     uint8 public ochoBits = 255;
     //  uint8 ochoBits2 = 256;
 
