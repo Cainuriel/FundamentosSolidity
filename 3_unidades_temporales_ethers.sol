@@ -22,7 +22,9 @@ contract Unidades {
 
     uint public tokenPrice;
 
-
+    ///@dev: esta funcion setea el precio de la variable tokenPrice en una equivalencia en dolares.
+    ///@param: _oneDollar equivalencia en weis de un dolar del token nativo(ejem: ETH, BNB, MATIC)
+    ///@param: _amountOfdollars cantidad de dolares.
      function priceToDollar(uint _oneDollar, uint _amountOfdollars)  public  
     {
         tokenPrice = _oneDollar * _amountOfdollars;
