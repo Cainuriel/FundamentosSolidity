@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+/// public: funcion accesible exteriormente como internamente.
+/// external: funcion accesible UNICAMENTE por el exterior. El contrato no puede acceder a ella internamente.
+/// private: funcion accesible UNICAMENTE de forma interna el contrato. No accesible si es heredada.
+/// internal: Accesible de forma interna por el contrato y quien lo herede..
  contract funciones 
 {
-
 
   function multiplicar(uint _a, uint _b) external pure returns (uint) 
   {
