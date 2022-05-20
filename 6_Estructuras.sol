@@ -106,12 +106,16 @@ contract Estructuras {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-    uint public contador;
+// usaremos este contador como referencia para crear un array dinamico, en tiempo de ejecucion de la
+// funcion createArray. De esta forma guardamos user directamente en un array: ArrayCreateUser, o podemos
+// guardar la informacion en un mapping de usuarios y posteriormente crear un array de esos elementos con
+// la funcion createArray. Tengan en cuenta que son dos registros diferentes de usuarios.
+    uint public contador; 
 
     function MappingCreateUser(uint _idNFT, string memory _nombre) public returns(uint)  {
             uint startGas = gasleft();
             require(!permisos[msg.sender], "Usted ya esta registrado");
+            contador++;
             Estructura memory newEstructura  = Estructura(_nombre, _idNFT, msg.sender);
             users[contador] = newEstructura;
             permisos[msg.sender] = true;
@@ -122,7 +126,6 @@ contract Estructuras {
        function ArrayCreateUser(uint _idNFT, string memory _nombre) public returns(uint)  {
             uint startGas = gasleft();
             require(!permisos[msg.sender], "Usted ya esta registrado");
-            contador++;
             Estructura memory newEstructura  = Estructura(_nombre, _idNFT, msg.sender);
             arrayDinamico.push(newEstructura);
             permisos[msg.sender] = true;
