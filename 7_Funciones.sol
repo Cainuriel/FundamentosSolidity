@@ -13,7 +13,7 @@ pragma solidity ^0.8.0;
 
   function sumar(uint _a, uint _b) public pure returns (uint balance) 
   {
-    // return _a + multiplicar(_a, _b);
+    // return _a + multiplicar(_a, _b); // inaccesible por ser externa
     return _a + _b;
   }
 
