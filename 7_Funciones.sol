@@ -36,6 +36,7 @@ pragma solidity ^0.8.0;
     }
   }
 
+  // si creamos funciones sin cuerpo convertiremos el contrato en abstracto.
  // function modulo(uint _a, uint _b) external pure virtual returns (uint);
   
 }
@@ -68,21 +69,22 @@ contract Pagables is funciones
     owner = msg.sender;
   }
 
+// con la palabra reservada payable en la funcion, solidity entiende que recibira token nativo.
   function ingresar() public payable 
   {
-
-       balances[msg.sender] = msg.value;
+      // sino registramos quien ingresa no sabremos de quien es cada ether ingresado.
+       balances[msg.sender] = msg.value; 
   }
 
 
    function balanceOf(address _owner) public view returns (uint balance) 
    {
-    return balances[_owner];
+    return balances[_owner]; // no confunidr el saldo del contrato con el saldo de un usuario.
   }
 
   function balanceOfContract() public view segurity returns  (uint balance) 
-  {
-    return address(this).balance;
+  {// toda address tiene una funcion balance con su saldo. Ello incluye a los contratos.
+    return address(this).balance; 
   }
 
   function accesoFuncionesHeredadas(uint _a, uint _b) public pure returns (uint, uint) 
@@ -95,11 +97,12 @@ contract Pagables is funciones
   function withdraw() public segurity 
   {
       uint256 amount = balanceOfContract();
-      payable(msg.sender).transfer(amount);
+      payable(msg.sender).transfer(amount); // hay que usar el metodo payable() para que la cuenta pueda recibir ethers
       emit WithdrawTime(amount, block.timestamp);
       
   }
-
+    // se han de sobreescribir y rellenar las funciones abstractas para que el contrato en herencia
+    // no se convierta tambien en abstracto. 
     // function modulo(uint a, uint b) external pure override returns (uint) {
     //     return a % b;
     // }
