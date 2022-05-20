@@ -3,7 +3,10 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-
+///@notice: Contrato para almacenar Ethers y hacer pagares a cuentas. 
+/// Este contrato puede que tenga la seguridad minima para el fin que se propone pero es muy mejorable
+/// en la logica del negocio, por ejemplo: Hay que mejorar la construcción de los cheques para que
+/// no puedan volver a ser cobrados. INVITO A QUE OS ATREVAIS A MEJORARLO.
 contract Hucha is Ownable 
 {
 
