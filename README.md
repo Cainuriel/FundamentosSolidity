@@ -1,2 +1,3 @@
 # FundamentosSolidity
-Archivos comentados en la charla introductoria, "Introducción al lenguaje Solidity", realizada el **19 de Mayor del 2022** para https://www.danielprimo.io/.
+Archivos comentados en la charla introductoria, "Introducción al lenguaje Solidity", para la comunidad Preium de https://www.danielprimo.io/. 
+## Realizada el **19 de Mayo del 2022**. 
