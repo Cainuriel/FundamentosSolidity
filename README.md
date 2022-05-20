@@ -1,2 +1,2 @@
 # FundamentosSolidity
- clase para daniel Primo
+Archivos comentados en la charla introductoria, "Introducción al lenguaje Solidity", realizada el **19 de Mayor del 2022** para la zona premium de [Daniel Primo]:https://www.danielprimo.io/.
